@@ -1,0 +1,59 @@
+def build_versions = [:]
+build_versions.min_sdk = 21 // android 5.0
+build_versions.target_sdk = 34 // android tiramisu
+build_versions.compile_sdk = build_versions.target_sdk
+build_versions.build_tools = "34.0.0"
+def major = 1
+def minor = 0
+def patch = 0
+build_versions.code = (major + minor + patch)
+build_versions.name = "$major.$minor.$patch"
+ext.build_versions = build_versions
+
+ext {
+    vGradle = "8.1.1"
+    vKotlin = "1.9.0"
+
+    vAndroidxActivity = "1.7.2"
+    vAndroidxAnnotation = "1.7.0"
+    vAndroidxAnnotationExperimental = "1.3.1"
+    vAndroidxAppCompat = "1.6.1"
+    vAndroidxArchCore = "2.2.0"
+    vAndroidxConcurrent = "1.1.0"
+    vAndroidxCore = "1.12.0"
+    vAndroidxConstrainLayout = "2.1.4"
+    vAndroidxCustomview = "1.1.0"
+    vAndroidxDrawerLayout = "1.2.0"
+    vAndroidxEspresso = "3.5.1"
+    vAndroidxFragment = "1.6.1"
+    vAndroidxLifecycle = "2.6.2"
+    vAndroidxTestCore = "1.5.0"
+    vAndroidxTestRules = "1.5.0"
+    vAndroidxTestExtJunit = "1.1.5"
+    vAndroidxTestMonitor = "1.6.1"
+    vJacoco = "0.8.10"
+    vJunit = "4.13.2"
+    vKotlinCoroutines = "1.7.3"
+    vLeakcanaryAndroid = "2.12"
+    vMaterial = "1.9.0"
+    vMockito = "5.5.0"
+    vMockitoInline = "5.2.0"
+    vOrgGson = "20230618"
+}
+
+def addRepos(RepositoryHandler handler) {
+    handler.gradlePluginPortal()
+    handler.google()
+    handler.mavenCentral()
+    handler.maven {
+        url "https://jcenter.bintray.com"
+        url "https://oss.sonatype.org/content/repositories/snapshots"
+        url "https://jitpack.io"
+    }
+    handler.mavenLocal()
+    handler.mavenLocal {
+        it.url("${rootDir}/.m2/repository")
+    }
+}
+
+ext.addRepos = this.&addRepos

@@ -1,0 +1,165 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <FrameLayout
+
+        android:id="@+id/fl_main"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3.3">
+
+        <com.softwinner.tv_d_video.view.SurfaceView
+            android:id="@+id/surface"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/image_bj"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:visibility="gone" />
+
+
+        <ImageView
+            android:id="@+id/image_spende"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:focusableInTouchMode="false"
+            android:src="@drawable/ico_play"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/controller"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_80"
+            android:layout_gravity="bottom"
+            android:background="@color/black"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp_10"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/image_next"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/up_selector" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/TextimeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/music_current_time"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:textColor="#fff"
+                        android:textSize="@dimen/sp_14" />
+
+                    <TextView
+                        android:id="@+id/music_total_time"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:textColor="#fff"
+                        android:textSize="@dimen/sp_14" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekBar"
+                    style="@style/Widget.SeekBar.Normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|top"
+                    android:layout_marginBottom="@dimen/dp_10"
+                    android:indeterminate="false" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/image_on"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/next_selector" />
+
+            <RadioGroup
+                android:id="@+id/btn_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/btn_border"
+                    android:button="@null"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:text="@string/str_default"
+                    android:textColor="@drawable/text_selector"
+                    android:textSize="@dimen/sp_20" />
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/btn_border"
+                    android:button="@null"
+                    android:checked="false"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:text="@string/full_screen"
+                    android:textColor="@drawable/text_selector"
+                    android:textSize="@dimen/sp_20" />
+            </RadioGroup>
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/video_list"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.7"
+        android:background="@color/black"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:background="@color/black"
+            android:gravity="center"
+            android:text="@string/local_video"
+            android:textColor="#fff"
+            android:textSize="24sp" />
+
+        <ListView
+            android:id="@+id/swipe_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray"
+            android:divider="@color/black"
+            android:dividerHeight="3dp"
+            android:listSelector="#00000000" />
+    </LinearLayout>
+</LinearLayout>
